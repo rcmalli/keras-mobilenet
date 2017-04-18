@@ -1,8 +1,7 @@
 from keras.applications.imagenet_utils import _obtain_input_shape
 from keras import backend as K
-from keras.layers import Input, Convolution2D, MaxPooling2D, Activation, concatenate, SeparableConvolution2D, \
+from keras.layers import Input, Convolution2D, SeparableConvolution2D, \
     GlobalAveragePooling2D, Dense
-from keras.layers.pooling import AveragePooling2D
 from keras.models import Model
 from keras.engine.topology import get_source_inputs
 from keras.utils import get_file
@@ -28,21 +27,21 @@ def MobileNet(input_tensor=None, input_shape=None, alpha =1, classes=1000):
         else:
             img_input = input_tensor
 
-    x = Convolution2D(int(32*alpha), (3, 3), strides=(2, 2), padding='same')(img_input)
-    x = SeparableConvolution2D(int(32*alpha), (3, 3), strides=(1, 1), padding='same')(x)
-    x = SeparableConvolution2D(int(64 * alpha), (3, 3), strides=(2, 2), padding='same')(x)
-    x = SeparableConvolution2D(int(128 * alpha), (3, 3), strides=(1, 1), padding='same')(x)
-    x = SeparableConvolution2D(int(128 * alpha), (3, 3), strides=(2, 2), padding='same')(x)
-    x = SeparableConvolution2D(int(256 * alpha), (3, 3), strides=(1, 1), padding='same')(x)
-    x = SeparableConvolution2D(int(256 * alpha), (3, 3), strides=(2, 2), padding='same')(x)
+    x = Convolution2D(int(32*alpha), (3, 3), strides=(2, 2), activation='relu', padding='same')(img_input)
+    x = SeparableConvolution2D(int(32*alpha), (3, 3), strides=(1, 1), activation='relu', padding='same')(x)
+    x = SeparableConvolution2D(int(64 * alpha), (3, 3), strides=(2, 2), activation='relu', padding='same')(x)
+    x = SeparableConvolution2D(int(128 * alpha), (3, 3), strides=(1, 1), activation='relu', padding='same')(x)
+    x = SeparableConvolution2D(int(128 * alpha), (3, 3), strides=(2, 2), activation='relu', padding='same')(x)
+    x = SeparableConvolution2D(int(256 * alpha), (3, 3), strides=(1, 1), activation='relu', padding='same')(x)
+    x = SeparableConvolution2D(int(256 * alpha), (3, 3), strides=(2, 2), activation='relu', padding='same')(x)
 
     for _ in range(5):
-        x = SeparableConvolution2D(int(512 * alpha), (3, 3), strides=(1, 1), padding='same')(x)
+        x = SeparableConvolution2D(int(512 * alpha), (3, 3), strides=(1, 1), activation='relu', padding='same')(x)
 
-    x = SeparableConvolution2D(int(512 * alpha), (3, 3), strides=(2, 2), padding='same')(x)
-    x = SeparableConvolution2D(int(1024 * alpha), (3, 3), strides=(1, 1), padding='same')(x)
+    x = SeparableConvolution2D(int(512 * alpha), (3, 3), strides=(2, 2), activation='relu', padding='same')(x)
+    x = SeparableConvolution2D(int(1024 * alpha), (3, 3), strides=(1, 1), activation='relu', padding='same')(x)
     x = GlobalAveragePooling2D()(x)
-    out = Dense(1024, activation='softmax')(x)
+    out = Dense(classes, activation='softmax')(x)
 
     if input_tensor is not None:
         inputs = get_source_inputs(input_tensor)

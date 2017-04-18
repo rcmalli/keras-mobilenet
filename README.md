@@ -6,9 +6,10 @@ Google MobileNet Implementation using Keras Functional Framework 2.0
 
 ### TODO
 
+- [ ] Batchnorm missing
 - [ ] Check layer shapes
 - [ ] Benchmark speeds
-- [ ] Compare with SqueezeNet
+- [ ] Compare with [SqueezeNet](https://github.com/rcmalli/keras-squeezenet)
 
 ### Library Versions
 
