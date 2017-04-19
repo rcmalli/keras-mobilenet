@@ -8,7 +8,7 @@ Google MobileNet Implementation using Keras Framework 2.0
 - Separable Convolution is already implemented in both Keras and TF but, there is no BN support after Depthwise layers (Still investigating).
 - Custom Depthwise Layer is just implemented by changing the source code of Separable Convolution from Keras. [Keras: Separable Convolution](https://github.com/fchollet/keras/blob/master/keras/layers/convolutional.py#L806)
 - There is probably a typo in Table 1 at the last "Conv dw" layer stride should be 1 according to input sizes.
-- Couldn't find any information about the usage of biases at DW PW layers.
+- Couldn't find any information about the usage of biases at layers (not used as default).
 
 ### TODO
 - [x] Add Custom Depthwise Convolution
