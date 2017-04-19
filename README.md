@@ -6,7 +6,7 @@ Google MobileNet Implementation using Keras Functional Framework 2.0
 
 - This project is just the implementation of paper from scratch. I don't have the pretrained weights or GPU's to train :)
 - Separable Convolution is already implemented in both Keras and TF but, there is no BN support after Depthwise layers.
-- Custom Depthwise Layer is just implemented by changing the source code of Separable Convolution from Keras sources [Keras: Separable Convolution](https://github.com/fchollet/keras/blob/master/keras/layers/convolutional.py#L806)
+- Custom Depthwise Layer is just implemented by changing the source code of Separable Convolution from Keras. [Keras: Separable Convolution](https://github.com/fchollet/keras/blob/master/keras/layers/convolutional.py#L806)
 - There is probably a typo in Table 1 at the last "Conv dw" layer stride should be 1 according to input sizes.
 
 ### TODO
