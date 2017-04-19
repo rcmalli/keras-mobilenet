@@ -14,7 +14,7 @@ Google MobileNet Implementation using Keras Framework 2.0
 - [x] Add BN + RELU layers
 - [x] Check layer shapes
 - [ ] Test Custom Depthwise Convolution
-- [ ] Benchmark Training and Feedforward with both CPU and GPU
+- [ ] Benchmark training and feedforward pass with both CPU and GPU
 - [ ] Compare with [SqueezeNet](https://github.com/rcmalli/keras-squeezenet)
 
 ### Library Versions
