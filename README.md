@@ -1,5 +1,5 @@
 # keras-mobilenet
-Google MobileNet Implementation using Keras Functional Framework 2.0
+Google MobileNet Implementation using Keras Framework 2.0
 
 
 ### Project Summary
