@@ -1,5 +1,6 @@
-# keras-mobilenet
-Google MobileNet Implementation using Keras Framework 2.0
+
+# Note: This project is not maintained anymore. Mobilenet implementation is already included in Keras Applications folder. [Mobilenet](https://github.com/fchollet/keras/blob/master/keras/applications/mobilenet.py)asdasdasdasdasdasdasd
+asdasdasdasdasdGoogle MobileNet Implementation using Keras Framework 2.0
 
 
 ### Project Summary
